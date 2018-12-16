@@ -1,25 +1,31 @@
 package com.company.springtest;
 
-import com.company.springtest.models.Auto;
-import com.company.springtest.models.User;
-import com.company.springtest.services.UserService;
+import com.company.springtest.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.sql.SQLException;
-
 @SpringBootApplication
-public class Main {
-    public static void main(String[] args) throws SQLException {
+public class Main implements CommandLineRunner {
 
-        UserService userService = new UserService();
-        User user = new User("Masha", 28);
-        userService.saveUser(user);
-        Auto vaz = new Auto("vaz", "green");
-        vaz.setUser(user);
-        user.addAuto(vaz);
-        Auto lamborghini = new Auto("Lamborghini", "yellow");
-        lamborghini.setUser(user);
-        user.addAuto(lamborghini);
-        userService.updateUser(user);
+    @Autowired
+    private UserService userService;
+
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
+    }
+
+    @Override
+    public void run(String... args) {
+//        User user = new User("Masha", 28);
+//        userService.saveUser(user);
+//        Car vaz = new Car("vaz", "green");
+//        vaz.setUser(user);
+//        user.addAuto(vaz);
+//        Car lamborghini = new Car("Lamborghini", "yellow");
+//        lamborghini.setUser(user);
+//        user.addAuto(lamborghini);
+//        userService.updateUser(user);
     }
 }
