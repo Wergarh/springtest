@@ -2,7 +2,6 @@ package com.company.springtest.controller;
 
 import com.company.springtest.model.User;
 import com.company.springtest.service.UserService;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +19,6 @@ import java.util.Optional;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertNotNull;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -49,11 +47,6 @@ public class UserControllerTest {
 
         given(userService.findAll()).willReturn(userList);
         given(userService.findById(user1.getUserId())).willReturn(Optional.of(user1));
-    }
-
-    @Test
-    public void contextLoads() throws Exception {
-        assertNotNull(mockMvc);
     }
 
     @Test
