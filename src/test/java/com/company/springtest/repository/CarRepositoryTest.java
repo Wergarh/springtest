@@ -4,14 +4,14 @@ import com.company.springtest.model.Car;
 import com.company.springtest.model.User;
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -28,15 +28,6 @@ public class CarRepositoryTest {
     private User user1;
     private Car car1;
     private Car car2;
-
-    @Test
-    public void contextLoads() throws Exception {
-        assertNotNull(carRepository);
-    }
-
-    @Before
-    public void setUp() throws Exception {
-    }
 
     @Test
     public void getAllCars() throws Exception {

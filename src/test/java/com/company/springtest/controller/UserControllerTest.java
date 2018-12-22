@@ -71,8 +71,4 @@ public class UserControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.userId", is(user1.getUserId())));
     }
-
-    @After
-    public void tearDown() throws Exception {
-    }
 }
