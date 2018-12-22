@@ -1,11 +1,11 @@
 package com.company.springtest.service;
 
-import com.company.springtest.repository.UserRepository;
 import com.company.springtest.model.User;
+import com.company.springtest.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -16,12 +16,12 @@ public class UserService {
     public UserService() {
     }
 
-    public Iterable<User> findAll() {
+    public List<User> findAll() {
         return usersDao.findAll();
     }
 
-    public Optional<User> findById(Integer id) {
-        return usersDao.findById(id);
+    public User findById(Integer id) {
+        return usersDao.findById(id).orElse(null);
     }
 
     public void updateUser(User user) {
