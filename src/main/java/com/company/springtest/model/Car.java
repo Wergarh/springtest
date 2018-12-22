@@ -1,5 +1,7 @@
 package com.company.springtest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +19,7 @@ public class Car {
     @Column(name = "MODEL")
     private String model;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", nullable = false)
     private User user;
