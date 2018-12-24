@@ -46,7 +46,7 @@ public class UserControllerTest {
         List<User> userList = Arrays.asList(user1, user2);
 
         given(userService.findAll()).willReturn(userList);
-        given(userService.findById(user1.getUserId())).willReturn(Optional.of(user1));
+        given(userService.findById(user1.getUserId())).willReturn(Optional.of(user1).get());
     }
 
     @Test
