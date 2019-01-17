@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Server {
 
@@ -23,13 +24,44 @@ public class Server {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-        while ((str = br.readLine()) != null) {
+
+        Scanner in = new Scanner(System.in);
+
+        while (true) {
+
+            str = in.next();
+
             System.out.println("Message: " + str);
             pw.println(str);
+
+            if (str.equals("exit")) {
+                break;
+            }
         }
+
+//        while ((str = br.readLine()) != null) {
+//            System.out.println("Message: " + str);
+//            pw.println(str);
+//        }
 
         pw.close();
         br.close();
         clientSocket.close();
     }
 }
+
+
+/*
+
+public static void clientFunc(object obj) {
+
+    Socket s = obj as Socket;
+    byte[] bytes = new byte[1024];
+    while (true) {
+        try {
+            string result = Encoding.UTF8.GetString(bytes, 0, s.Receive(bytes));
+            if (result.Equals("GET"))
+        {
+        s.Send(Encoding.UTF8.GetBytes(T.ToString()));
+    }
+ */
